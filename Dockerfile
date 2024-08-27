@@ -18,4 +18,4 @@ RUN yarn build:app:docker
 
 FROM ghcr.io/nginxinc/nginx-unprivileged:1.27.1
 
-COPY --from=builder /opt/node_app/excalidraw-app/build /var/www/html
+COPY --from=builder /opt/node_app/excalidraw-app/build /usr/share/nginx/html
