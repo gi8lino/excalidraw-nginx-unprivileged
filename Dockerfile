@@ -16,6 +16,6 @@ ARG NODE_ENV=production
 
 RUN yarn build:app:docker
 
-FROM ghcr.io/nginxinc/nginx-unprivileged:1.27.1
+FROM ghcr.io/nginxinc/nginx-unprivileged:1.27.2
 
 COPY --from=builder /opt/node_app/excalidraw-app/build /usr/share/nginx/html
