@@ -1,4 +1,4 @@
-FROM node:24 AS builder
+FROM node:26 AS builder
 
 # Install git to clone the repository
 RUN apt-get update && apt-get install -y git
