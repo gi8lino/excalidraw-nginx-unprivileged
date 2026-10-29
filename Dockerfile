@@ -1,4 +1,4 @@
-FROM node:24 AS builder
+FROM node:26 AS builder
 
 # Install git to clone the repository
 RUN apt-get update && apt-get install -y git
@@ -7,6 +7,9 @@ RUN apt-get update && apt-get install -y git
 RUN git clone https://github.com/excalidraw/excalidraw.git /opt/node_app
 
 WORKDIR /opt/node_app
+
+# Install the package manager explicitly; Node 26 no longer includes Yarn.
+RUN npm install --global yarn@1.22.22
 
 # do not ignore optional dependencies:
 # Error: Cannot find module @rollup/rollup-linux-x64-gnu
