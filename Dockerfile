@@ -8,6 +8,9 @@ RUN git clone https://github.com/excalidraw/excalidraw.git /opt/node_app
 
 WORKDIR /opt/node_app
 
+# Install the package manager explicitly; Node 26 no longer includes Yarn.
+RUN npm install --global yarn@1.22.22
+
 # do not ignore optional dependencies:
 # Error: Cannot find module @rollup/rollup-linux-x64-gnu
 RUN yarn --network-timeout 600000
